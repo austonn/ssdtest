@@ -23,6 +23,8 @@ function isXSSAttack(input) {
     return xssPatterns.some(pattern => pattern.test(input));
 }
 
+// Testing Second Commit Purposes
+
 // SQL injection validation function
 function isSQLInjection(input) {
     const sqlPatterns = [
