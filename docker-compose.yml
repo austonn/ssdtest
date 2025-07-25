@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: web.Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+      - WEB_USERNAME=admin
+      - WEB_PASSWORD=2301768@sit.singaporetech.edu.sg
+    restart: unless-stopped
+
+  git-server:
+    build:
+      context: .
+      dockerfile: gitserver.Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - GIT_AUTHOR_NAME=AUSTON IAN NG
+      - GIT_AUTHOR_EMAIL=2301768@sit.singaporetech.edu.sg
+      - GIT_COMMITTER_NAME=AUSTON IAN NG
+      - GIT_COMMITTER_EMAIL=2301768@sit.singaporetech.edu.sg
+    restart: unless-stopped
